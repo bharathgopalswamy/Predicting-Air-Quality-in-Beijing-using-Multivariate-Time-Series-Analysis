@@ -1,0 +1,9 @@
+task,value
+Raw rows,420768
+Processed rows,35064
+Raw columns,18
+Processed columns,31
+Missing PM2.5 before,8739
+Missing PM2.5 after,0
+Unique stations before,12
+Unique stations after,1

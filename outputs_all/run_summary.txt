@@ -1,0 +1,34 @@
+Beijing PM2.5 Time-Series Forecasting Pipeline Complete
+Station modeled: ALL
+Processed rows: 35,064
+Feature rows after lag engineering: 34,896
+Forecast horizon: 168 hours
+MAE: 0.5383
+RMSE: 2.9858
+R2: 0.9985
+MAPE: 0.71%
+Top 5 forecasting features:
+  - pm25_lag_1
+  - pm25_diff_1
+  - PM10
+  - pm25_diff_24
+  - pm25_lag_3
+
+Historical seasonal summary:
+season  avg_pm25  median_pm25  avg_temp  avg_rain  avg_wind expected_pm25_category expected_temperature_feel expected_rain_condition expected_wind_condition
+Spring 76.864646    60.250000 15.050087  0.025476  2.070819              Unhealthy                      Cool              Light Rain            Light Breeze
+Summer 64.687232    53.000000 26.147405  0.166046  1.507006               Moderate                      Warm              Light Rain                    Calm
+Autumn 82.221628    57.666667 13.003016  0.061316  1.445591              Unhealthy                      Cool              Light Rain                    Calm
+Winter 95.892769    62.750000 -0.343020  0.003646  1.896987              Unhealthy                  Freezing              Light Rain                    Calm
+
+Future seasonal projection from forecast horizon:
+season  forecast_avg_pm25  forecast_avg_temp  forecast_avg_rain  forecast_avg_wind forecast_pm25_category forecast_temperature_feel forecast_rain_condition forecast_wind_condition
+Spring         138.530303           8.348513           0.007586           1.976319              Unhealthy                      Cold              Light Rain                    Calm
+
+Presentation claims and evidence:
+                                                           claim                                                                                                                                                                      evidence
+                        PM2.5 interdependency with PM10, NO2, CO                                                                          Correlations with PM2.5 -> PM10=0.903, NO2=0.743, CO=0.826. Top correlated variables: PM10, CO, NO2.
+Weather significantly affects pollution dispersion and variation Correlations with PM2.5 -> WSPM=-0.331, TEMP=-0.139, RAIN=-0.021. Negative wind correlation supports dispersion; seasonal plots and scatter plots show time-varying behavior.
+                            Winter has stronger pollution levels                                                                                         Historical winter average PM2.5=95.89, category=Unhealthy, temperature feel=Freezing.
+                           Time-series forecasting model quality                                                                                      RandomForest time-series forecast metrics -> MAE=0.538, RMSE=2.986, R2=0.999, MAPE=0.71%
+                       Most influential features for forecasting                                             Top features: pm25_lag_1, pm25_diff_1, PM10, pm25_diff_24, pm25_lag_3, pm25_lag_2, CO, pm25_roll_mean_24, pm25_lag_6, pm25_lag_48
